@@ -1,0 +1,54 @@
+DELIMITER //
+
+CREATE PROCEDURE RegisterEmployee(
+    IN FirstName NVARCHAR(50),
+    IN LastName NVARCHAR(50),
+    IN Title NVARCHAR(50),
+    IN BirthDate DATE,
+    IN HireDate DATE,
+    IN Address NVARCHAR(100),
+    IN City NVARCHAR(50),
+    IN Region NVARCHAR(50),
+    IN PostalCode NVARCHAR(20),
+    IN Country NVARCHAR(50),
+    IN HomePhone NVARCHAR(20),
+    IN Extension NVARCHAR(10),
+    IN Notes LONGTEXT,
+    IN PhotoPath NVARCHAR(255),
+    IN ReportsTo INT
+)
+BEGIN
+    INSERT INTO Employees (FirstName, LastName, Title, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Notes, PhotoPath, ReportsTo)
+    VALUES (FirstName, LastName, Title, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Notes, PhotoPath, ReportsTo);
+END //
+
+CREATE PROCEDURE RegisterCustomer(
+    IN CustomerID NCHAR(5),
+    IN CompanyName NVARCHAR(50),
+    IN ContactName NVARCHAR(50),
+    IN ContactTitle NVARCHAR(50),
+    IN Address NVARCHAR(100),
+    IN City NVARCHAR(50),
+    IN Region NVARCHAR(50),
+    IN PostalCode NVARCHAR(20),
+    IN Country NVARCHAR(50),
+    IN Phone NVARCHAR(20),
+    IN Fax NVARCHAR(20)
+)
+BEGIN
+    INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+    VALUES (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax);
+END //
+
+CREATE PROCEDURE RegisterTerritory(
+    IN TerritoryID NVARCHAR(20),
+    IN TerritoryDescription NVARCHAR(50),
+    IN RegionID INT
+)
+BEGIN
+    INSERT INTO Territories (TerritoryID, TerritoryDescription, RegionID)
+    VALUES (TerritoryID, TerritoryDescription, RegionID);
+END //
+
+DELIMITER ;
+
